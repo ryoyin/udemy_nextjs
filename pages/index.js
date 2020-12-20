@@ -5,7 +5,7 @@ import Carousel from '../components/carousel'
 import MovieList from '../components/movieList'
 import Footer from '../components/footer'
 
-export default function Home() {
+const Home = () => {
   return (
     <div>
       <Head>
@@ -52,3 +52,5 @@ export default function Home() {
 
   )
 }
+
+export default Home
