@@ -2,6 +2,12 @@ import React from 'react'
 
 class MovieList extends React.Component {
 
+    shortDescription = (text) => {
+        return (
+            text.substr(0, 100) + '...'
+        )
+    }
+
     renderMovies(movies) {
 
         return movies.map(movie => 
@@ -14,7 +20,7 @@ class MovieList extends React.Component {
                                 <a href="#">{movie.name}</a>
                             </h4>
                             <h5>${movie.price}</h5>
-                            <p className="card-text">{movie.description}</p>
+                            <p className="card-text">{this.shortDescription(movie.description)}</p>
                         </div>
                         <div className="card-footer">
                             <small className="text-muted">{movie.rating}</small>
