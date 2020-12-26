@@ -38,10 +38,6 @@ class MovieList extends React.Component {
         return (
             <React.Fragment>
 
-                <div>
-                    <h1>Count: {this.props.count}</h1>
-                </div>
-
                 { this.renderMovies(movies) }
             
             </React.Fragment>
