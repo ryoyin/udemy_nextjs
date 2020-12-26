@@ -8,6 +8,7 @@ import React, { useState } from 'react'
 import {getMovies} from '../actions/index'
 
 const Home = () => {
+  const [movies, setMovies] = useState([])
 
   const [ count, setCount ] = useState(0)
 
@@ -19,7 +20,10 @@ const Home = () => {
       setCount(count - 1)
   }
 
-  const movies = getMovies() || []
+  getMovies().then((movies) => {
+    console.log('again')
+    setMovies(movies)
+  }) || []
 
   return (
     <div>
