@@ -19,7 +19,7 @@ const Home = () => {
       setCount(count - 1)
   }
 
-  const movies = getMovies()
+  const movies = getMovies() || []
 
   return (
     <div>
