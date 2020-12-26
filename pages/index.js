@@ -1,10 +1,11 @@
+import React, { useState, useEffect } from 'react'
+
 import Head from 'next/head'
 import Navbar from '../components/navbar'
 import SideMenu from '../components/sideMenu'
 import Carousel from '../components/carousel'
 import MovieList from '../components/movieList'
 import Footer from '../components/footer'
-import React, { useState } from 'react'
 import {getMovies} from '../actions/index'
 
 const Home = () => {
@@ -20,10 +21,17 @@ const Home = () => {
       setCount(count - 1)
   }
 
-  getMovies().then((movies) => {
-    console.log('again')
-    setMovies(movies)
-  }) || []
+  useEffect(() => {
+
+    const fetchData = async () => {
+      const resMovies = await getMovies()
+      setMovies(resMovies)
+    }
+
+    fetchData();
+    
+  }, [])
+
 
   return (
     <div>
