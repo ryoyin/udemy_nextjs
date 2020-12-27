@@ -10,26 +10,16 @@ import {getMovies} from '../actions/index'
 
 class Home extends React.Component {
 
-  constructor(props) {
-    super(props)
-    this.state = {
-      movies: [],
-      errorMessage: ''
+  static async getInitialProps() {
+    const movies = await getMovies()
+
+    return {
+      movies
     }
   }
-
-  componentDidMount() {
-    getMovies()
-      .then(movies => {
-        this.setState({movies: movies})
-      })
-      .catch((error) => {
-        this.setState({errorMessage: error})
-      })
-  }
-  
+ 
   render() {
-    const {movies, errorMessage} = this.state
+    const {movies} = this.props
     return (
       <div>
         <Head>
@@ -58,11 +48,6 @@ class Home extends React.Component {
                 <Carousel />
 
                 <div className="row">
-                  { errorMessage && 
-                    <div className="alert alert-danger" role="alert">
-                      {errorMessage} 
-                    </div>
-                  }
                   <MovieList movies={movies} />
                 </div>
 
