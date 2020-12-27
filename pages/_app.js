@@ -1,4 +1,5 @@
 import '../styles/globals.css'
+import '../styles/custom.scss'
 import Head from 'next/head'
 import Navbar from '../components/navbar'
 import Footer from '../components/footer'
