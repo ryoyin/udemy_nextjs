@@ -1,4 +1,15 @@
-const Carousel = () => {
+const Carousel = (props) => {
+    
+    const images = props.images
+    // console.log(images)
+    const getImages = (images) => {
+        return images.map((image, idx) => (
+            <div className="carousel-item active" key={idx}>
+                <img className="d-block img-fluid" src={ image.image } alt="First slide" />
+            </div>
+        ))
+    }
+
     return (
         <div id="carouselExampleIndicators" className="carousel slide my-4" data-ride="carousel">
             <ol className="carousel-indicators">
@@ -7,15 +18,16 @@ const Carousel = () => {
             <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
             </ol>
             <div className="carousel-inner" role="listbox">
-            <div className="carousel-item active">
-                <img className="d-block img-fluid" src="http://placehold.it/900x350" alt="First slide" />
-            </div>
-            <div className="carousel-item">
-                <img className="d-block img-fluid" src="http://placehold.it/900x350" alt="Second slide" />
-            </div>
-            <div className="carousel-item">
-                <img className="d-block img-fluid" src="http://placehold.it/900x350" alt="Third slide" />
-            </div>
+                { getImages(images) }
+                {/* <div className="carousel-item active">
+                    <img className="d-block img-fluid" src="http://placehold.it/900x350" alt="First slide" />
+                </div>
+                <div className="carousel-item">
+                    <img className="d-block img-fluid" src="http://placehold.it/900x350" alt="Second slide" />
+                </div>
+                <div className="carousel-item">
+                    <img className="d-block img-fluid" src="http://placehold.it/900x350" alt="Third slide" />
+                </div> */}
             </div>
             <a className="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
             <span className="carousel-control-prev-icon" aria-hidden="true"></span>

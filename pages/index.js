@@ -3,20 +3,29 @@ import React, { useState, useEffect } from 'react'
 import SideMenu from '../components/sideMenu'
 import Carousel from '../components/carousel'
 import MovieList from '../components/movieList'
-import {getMovies} from '../actions/index'
+import {getCategories, getMovies} from '../actions/index'
 
 class Home extends React.Component {
 
   static async getInitialProps() {
     const movies = await getMovies()
+    const categories = await getCategories()
+    const images = movies.map(movie => ({
+      id: `image-${movie.id}`,
+      image: movie.image
+    }))
 
     return {
-      movies
+      categories,
+      movies,
+      images
     }
   }
  
   render() {
-    const {movies} = this.props
+
+    const {categories, movies, images} = this.props
+
     return (
       <div>
         <div className="home-page">
@@ -27,12 +36,13 @@ class Home extends React.Component {
               <div className="col-lg-3">
                 <SideMenu 
                   appName={"Movie DB"}
+                  categories={categories}
                   />
               </div>
 
               <div className="col-lg-9">
                 
-                <Carousel />
+                <Carousel images= {images} />
 
                 <div className="row">
                   <MovieList movies={movies || []} />
