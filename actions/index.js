@@ -46,7 +46,7 @@ export const getCategories = () => {
         setTimeout(() => {
             resolve(CATEGORY_DATA)
             // reject('cannot fetch data!')
-        }, 2000)
+        }, 0)
     }) 
 }
 
@@ -57,7 +57,7 @@ export const getMovies = () => {
         setTimeout(() => {
             resolve(MOVIE_DATA)
             // reject('cannot fetch data!')
-        }, 2000)
+        }, 0)
     })    
 }
 
@@ -71,6 +71,6 @@ export const getMovieById = (id) => {
 
         setTimeout(() => {            
             resolve(movie)
-        }, 2000)
+        }, 0)
     })
 }

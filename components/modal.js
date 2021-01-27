@@ -1,4 +1,6 @@
-const Modal = () => {
+import { loadGetInitialProps } from "next/dist/next-server/lib/utils"
+
+const Modal = (props) => {
 
     let closeButton = null
 
@@ -22,7 +24,7 @@ const Modal = () => {
                             </button>
                         </div>
                         <div className="modal-body">
-                            <p>Modal body text goes here.</p>
+                            {props.children}
                         </div>
                         <div className="modal-footer">
                             <button onClick={submitModal} type="button" className="btn btn-primary">Save changes</button>

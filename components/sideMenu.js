@@ -1,4 +1,5 @@
 import Modal from './modal'
+import MovieCreateForm from './movieCreateForm'
 
 const renderCategories = (categories) => {
     return (
@@ -20,7 +21,9 @@ const SideMnu = (props) => {
     const {appName, categories} = props
     return (
         <div>
-            <Modal />
+            <Modal>
+                <MovieCreateForm />
+            </Modal>
             <h1 className="my-4">{appName}</h1>
             {renderCategories(categories)}
         </div>
